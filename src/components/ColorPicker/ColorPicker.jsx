@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import {
   Container,
   SelectedColor,
@@ -7,10 +7,15 @@ import {
   ColorBlock,
 } from './ColorPicker.styled';
 
-export default class ColorPicker extends Component {
+export default class ColorPicker extends PureComponent {
   state = {
-    activeOptionIdx: 0,
+    activeOptionIdx: 1,
   };
+
+  //? або використовувати PureComponent - це для того щоб не ререндерилось то що ти вже вибрав
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextState.activeOptionIdx !== this.state.activeOptionIdx;
+  // }
 
   setActiveBtn = index => {
     this.setState(() => ({ activeOptionIdx: index }));

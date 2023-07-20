@@ -1,15 +1,15 @@
 import { Component } from 'react';
-import { CounterContainer, Value, VisibleDiv } from './Counter.styled';
+import { CounterContainer, Value } from './Counter.styled';
 import { Controls } from './Controls/Controls';
 
 export default class Counter extends Component {
   static defaultProps = {
-    initialValue: 0,
+    initialValue: 1,
   };
 
   state = {
     value: this.props.initialValue,
-    visible: false,
+    visible: this.props.initialValue > 0 ? true : false,
   };
 
   handleIncrement = () => {
@@ -42,6 +42,7 @@ export default class Counter extends Component {
 
   render() {
     const { value } = this.state;
+    const { Timer } = this.props;
 
     return (
       <>
@@ -54,7 +55,7 @@ export default class Counter extends Component {
           />
         </CounterContainer>
 
-        {this.state.visible && <VisibleDiv>I'M VISIBLE</VisibleDiv>}
+        {this.state.visible && <Timer />}
       </>
     );
   }

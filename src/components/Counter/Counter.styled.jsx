@@ -26,20 +26,4 @@ const Value = styled.span`
   }};
 `;
 
-const VisibleDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 600px;
-  height: 60px;
-
-  margin: 20px auto 0 auto;
-
-  background-color: #003300;
-  border: 2px solid #00f90f;
-  border-radius: 10px;
-  color: #00f90f;
-  font-size: 20px;
-`;
-
-export { CounterContainer, Value, VisibleDiv };
+export { CounterContainer, Value };

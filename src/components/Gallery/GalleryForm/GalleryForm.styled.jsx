@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const TodoForm = styled.form`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,11 +21,9 @@ const FormName = styled.label`
   color: #f2ab26;
 `;
 
-const NewTodoValue = styled.textarea`
-  width: 400px;
-  max-width: 400px;
-  height: 400px;
-  min-height: 60px;
+const NewFormValue = styled.input`
+  width: 300px;
+  height: 40px;
   font-size: 20px;
   padding: 10px;
 
@@ -43,9 +41,9 @@ const NewTodoValue = styled.textarea`
   }
 `;
 
-const AddTodo = styled.button`
-  width: 280px;
-  height: 60px;
+const Search = styled.button`
+  width: 120px;
+  height: 40px;
 
   background-color: #332b00;
   border-radius: 16px;
@@ -65,4 +63,4 @@ const AddTodo = styled.button`
   }
 `;
 
-export { TodoForm, FormName, NewTodoValue, AddTodo };
+export { Form, FormName, NewFormValue, Search };
