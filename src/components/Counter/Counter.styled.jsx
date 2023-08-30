@@ -7,6 +7,7 @@ const CounterContainer = styled.div`
   align-items: center;
 
   width: 800px;
+  margin-top: 20px;
   padding: 20px;
 
   background-color: #332b00;

@@ -24,7 +24,7 @@ const FormName = styled.label`
 const NewTodoValue = styled.textarea`
   width: 400px;
   max-width: 400px;
-  height: 400px;
+  height: 100px;
   min-height: 60px;
   font-size: 20px;
   padding: 10px;

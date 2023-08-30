@@ -6,11 +6,10 @@ import {
   ChangeIsCompleted,
   RemoveTodo,
   TodoCounter,
-  ModalBtn,
 } from './TodoManager.styled';
+
 import AddTodo from './AddTodo';
 import TodoFilter from './TodoFilter';
-import Modal from 'components/Modal';
 
 const TodoManager = ({
   todos,
@@ -19,8 +18,6 @@ const TodoManager = ({
   onAddTodoSubmit,
   todoFilterValue,
   onHandleFilterChange,
-  onOpenModalClick,
-  showModal,
 }) => {
   const totalTodosCount = todos.length;
 
@@ -31,15 +28,7 @@ const TodoManager = ({
 
   return (
     <Container>
-      <ModalBtn type="button" onClick={onOpenModalClick}>
-        Добавити
-      </ModalBtn>
-
-      {showModal && (
-        <Modal onClose={onOpenModalClick}>
-          <AddTodo onSubmit={onAddTodoSubmit} />
-        </Modal>
-      )}
+      <AddTodo onSubmit={onAddTodoSubmit} />
 
       <TodoFilter
         value={todoFilterValue}

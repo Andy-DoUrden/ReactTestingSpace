@@ -1,62 +1,97 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
+// Component
 import { CounterContainer, Value } from './Counter.styled';
 import { Controls } from './Controls/Controls';
+import Timer from 'components/Clock';
 
-export default class Counter extends Component {
-  static defaultProps = {
-    initialValue: 1,
-  };
+const Counter = ({ initialValue }) => {
+  const [value, setValue] = useState(initialValue);
+  const [visible, setVisible] = useState(() =>
+    initialValue > 0 ? true : false
+  );
+  //? коли нам треба ініціювати стейт з значення що вичисляється то потрібно використовувати стрілку дял того щоб значення не перевичислялось на кожному ререндері
 
-  state = {
-    value: this.props.initialValue,
-    visible: this.props.initialValue > 0 ? true : false,
-  };
+  useEffect(() => {
+    if (value > 0) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  }, [value]);
 
-  handleIncrement = () => {
-    this.setState(prevState => ({
-      value: prevState.value + 1,
-    }));
+  return (
+    <>
+      <CounterContainer>
+        <Value value={value}>{value}</Value>
 
-    this.setState(prevState => {
-      if (prevState.value > 0) {
-        return {
-          visible: true,
-        };
-      }
-    });
-  };
+        <Controls
+          onIncrement={() => setValue(prevState => prevState + 1)}
+          onDecrement={() => setValue(prevState => prevState - 1)}
+        />
+      </CounterContainer>
 
-  handleDecrement = () => {
-    this.setState(prevState => ({
-      value: prevState.value - 1,
-    }));
+      {visible && <Timer />}
+    </>
+  );
+};
 
-    this.setState(prevState => {
-      if (prevState.value <= 0) {
-        return {
-          visible: false,
-        };
-      }
-    });
-  };
+export default Counter;
 
-  render() {
-    const { value } = this.state;
-    const { Timer } = this.props;
+// export default class Counter extends Component {
+//   static defaultProps = {
+//     initialValue: 1,
+//   };
 
-    return (
-      <>
-        <CounterContainer>
-          <Value value={value}>{value}</Value>
+//   state = {
+//     value: this.props.initialValue,
+//     visible: this.props.initialValue > 0 ? true : false,
+//   };
 
-          <Controls
-            onIncrement={this.handleIncrement}
-            onDecrement={this.handleDecrement}
-          />
-        </CounterContainer>
+//   handleIncrement = () => {
+//     this.setState(prevState => ({
+//       value: prevState.value + 1,
+//     }));
 
-        {this.state.visible && <Timer />}
-      </>
-    );
-  }
-}
+//     this.setState(prevState => {
+//       if (prevState.value > 0) {
+//         return {
+//           visible: true,
+//         };
+//       }
+//     });
+//   };
+
+//   handleDecrement = () => {
+//     this.setState(prevState => ({
+//       value: prevState.value - 1,
+//     }));
+
+//     this.setState(prevState => {
+//       if (prevState.value <= 0) {
+//         return {
+//           visible: false,
+//         };
+//       }
+//     });
+//   };
+
+//   render() {
+//     const { value } = this.state;
+//     const { Timer } = this.props;
+
+//     return (
+//       <>
+//         <CounterContainer>
+//           <Value value={value}>{value}</Value>
+
+//           <Controls
+//             onIncrement={this.handleIncrement}
+//             onDecrement={this.handleDecrement}
+//           />
+//         </CounterContainer>
+
+//         {this.state.visible && <Timer />}
+//       </>
+//     );
+//   }
+// }
