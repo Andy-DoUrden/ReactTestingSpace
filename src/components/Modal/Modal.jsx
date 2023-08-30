@@ -5,17 +5,15 @@ import { Backdrop, ModalContainer } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Modal = ({ onClose, resetImg, showImg, children }) => {
+const Modal = ({ onClose, showImg, children }) => {
   const handleKeydown = useMemo(
     () => e => {
       if (e.code === 'Escape') {
         onClose();
-
-        resetImg();
       }
     },
 
-    [onClose, resetImg]
+    [onClose]
   );
 
   useEffect(() => {
@@ -29,8 +27,6 @@ const Modal = ({ onClose, resetImg, showImg, children }) => {
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
       onClose();
-
-      resetImg();
     }
   };
 

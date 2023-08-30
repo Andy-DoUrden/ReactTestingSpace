@@ -16,7 +16,7 @@ const ModalImage = ({ onClose, imgURL }) => {
   }
 
   return (
-    <Modal onClose={onClose} showImg={!isLoading} resetImg={onClose}>
+    <Modal onClose={onClose} showImg={!isLoading}>
       <GalleryImage src={imgURL} onLoad={() => setIsLoading(false)} />
     </Modal>
   );
