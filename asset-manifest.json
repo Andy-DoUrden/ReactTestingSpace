@@ -1,13 +1,23 @@
 {
   "files": {
-    "main.css": "/ReactTestingSpace/static/css/main.749baa5c.css",
-    "main.js": "/ReactTestingSpace/static/js/main.541b3735.js",
+    "main.css": "/ReactTestingSpace/static/css/main.f2c20181.css",
+    "main.js": "/ReactTestingSpace/static/js/main.6f6bf2d9.js",
+    "static/js/187.69b47a9e.chunk.js": "/ReactTestingSpace/static/js/187.69b47a9e.chunk.js",
+    "static/js/159.958e4b2e.chunk.js": "/ReactTestingSpace/static/js/159.958e4b2e.chunk.js",
+    "static/js/42.bb5d6729.chunk.js": "/ReactTestingSpace/static/js/42.bb5d6729.chunk.js",
+    "static/js/486.0b6c4d94.chunk.js": "/ReactTestingSpace/static/js/486.0b6c4d94.chunk.js",
+    "static/js/279.31e0d11f.chunk.js": "/ReactTestingSpace/static/js/279.31e0d11f.chunk.js",
     "index.html": "/ReactTestingSpace/index.html",
-    "main.749baa5c.css.map": "/ReactTestingSpace/static/css/main.749baa5c.css.map",
-    "main.541b3735.js.map": "/ReactTestingSpace/static/js/main.541b3735.js.map"
+    "main.f2c20181.css.map": "/ReactTestingSpace/static/css/main.f2c20181.css.map",
+    "main.6f6bf2d9.js.map": "/ReactTestingSpace/static/js/main.6f6bf2d9.js.map",
+    "187.69b47a9e.chunk.js.map": "/ReactTestingSpace/static/js/187.69b47a9e.chunk.js.map",
+    "159.958e4b2e.chunk.js.map": "/ReactTestingSpace/static/js/159.958e4b2e.chunk.js.map",
+    "42.bb5d6729.chunk.js.map": "/ReactTestingSpace/static/js/42.bb5d6729.chunk.js.map",
+    "486.0b6c4d94.chunk.js.map": "/ReactTestingSpace/static/js/486.0b6c4d94.chunk.js.map",
+    "279.31e0d11f.chunk.js.map": "/ReactTestingSpace/static/js/279.31e0d11f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.749baa5c.css",
-    "static/js/main.541b3735.js"
+    "static/css/main.f2c20181.css",
+    "static/js/main.6f6bf2d9.js"
   ]
 }
