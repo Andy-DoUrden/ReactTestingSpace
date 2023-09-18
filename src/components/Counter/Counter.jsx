@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 // Component
 import { CounterContainer, Value } from './Counter.styled';
 import { Controls } from './Controls/Controls';
-import Timer from 'components/Clock';
+import Clock from 'components/Clock';
 
 const Counter = ({ initialValue }) => {
   const [value, setValue] = useState(initialValue);
@@ -30,7 +30,7 @@ const Counter = ({ initialValue }) => {
         />
       </CounterContainer>
 
-      {visible && <Timer />}
+      {visible && <Clock />}
     </>
   );
 };

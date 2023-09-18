@@ -5,8 +5,8 @@ const ClockContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 800px;
-  margin-top: 20px;
+  width: 300px;
+  margin: 20px auto 0 auto;
   padding: 20px;
 
   background-color: #332b00;
