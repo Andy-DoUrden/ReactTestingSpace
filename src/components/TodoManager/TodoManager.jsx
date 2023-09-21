@@ -1,3 +1,8 @@
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteTodo, toggleCompleted } from 'redux/todosSlice';
+import { getTodos } from 'redux/selectors';
+
 import {
   Container,
   TodoList,
@@ -11,14 +16,12 @@ import {
 import AddTodo from './AddTodo';
 import TodoFilter from './TodoFilter';
 
-const TodoManager = ({
-  todos,
-  changeStatus,
-  deleteTodo,
-  onAddTodoSubmit,
-  todoFilterValue,
-  onHandleFilterChange,
-}) => {
+const TodoManager = () => {
+  const todos = useSelector(getTodos).items;
+  const [filter, setFilter] = useState('');
+
+  const dispatch = useDispatch();
+
   const totalTodosCount = todos.length;
 
   const completedTodosCount = todos.reduce(
@@ -26,25 +29,38 @@ const TodoManager = ({
     0
   );
 
+  const changeFilter = e => {
+    setFilter(e.currentTarget.value);
+  };
+
+  const filteredTodos = () => {
+    const normalizedFilterValue = filter.toLowerCase();
+
+    return todos.filter(todo =>
+      todo.task.toLowerCase().includes(normalizedFilterValue)
+    );
+  };
+
+  const visibleTodos = filteredTodos();
+
   return (
     <Container>
-      <AddTodo onSubmit={onAddTodoSubmit} />
+      <AddTodo />
 
-      <TodoFilter
-        value={todoFilterValue}
-        onHandleChange={onHandleFilterChange}
-      />
+      <TodoFilter value={filter} onHandleChange={changeFilter} />
 
       <TodoList>
-        {todos.map(({ id, task, completed }) => (
+        {visibleTodos.map(({ id, task, completed }) => (
           <Todo key={id}>
             <TodoText isCompleted={completed}>{task}</TodoText>
 
-            <ChangeIsCompleted onClick={() => changeStatus(id, completed)}>
+            <ChangeIsCompleted onClick={() => dispatch(toggleCompleted(id))}>
               {completed ? 'Готово' : 'В процесі'}
             </ChangeIsCompleted>
 
-            <RemoveTodo onClick={() => deleteTodo(id)}>Видалити</RemoveTodo>
+            <RemoveTodo onClick={() => dispatch(deleteTodo(id))}>
+              Видалити
+            </RemoveTodo>
           </Todo>
         ))}
       </TodoList>

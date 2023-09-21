@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from 'redux/todosSlice';
 // Component
 // import shortid from 'shortid';
 import { toast } from 'react-toastify';
 import { TodoForm, FormName, NewTodoValue, AddTodo } from './AddTodo.styled';
 
-const TodoList = ({ onSubmit }) => {
+const TodoList = () => {
   const [newTodoText, setNewTodoText] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleInputChange = e => {
     const { value } = e.currentTarget;
@@ -21,7 +25,7 @@ const TodoList = ({ onSubmit }) => {
       return;
     }
 
-    onSubmit(newTodoText);
+    dispatch(addTodo(newTodoText));
 
     setNewTodoText('');
   };
